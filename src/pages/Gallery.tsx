@@ -10,86 +10,33 @@ import { useState } from "react";
 
 const categories = ["All", "Hands", "Feet", "Newborn", "Siblings", "Silver", "Framed"];
 
-const galleryItems = [
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/242718042_2160747107399942_1955443156177678551_n.jpg",
-    category: "Framed",
-    title: "Gallery Wall Display",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/IMG-20241130-WA0032-150x150.jpg",
-    category: "Feet",
-    title: "Footprints",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/249464040_2190122401129079_2267233956350364694_n.jpg",
-    category: "Newborn",
-    title: "Hand & Foot Set",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/243025729_2163696457105007_2582017175075551084_n.jpg",
-    category: "Newborn",
-    title: "Hand & Foot Set",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/278875065_2327924187348899_7854657581870170372_n.jpg",
-    category: "Siblings",
-    title: "Sibling Casts",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/IMG-20241130-WA0014-300x300.jpg",
-    category: "Hands",
-    title: "Hand Set",
-  },
-  {
-    image:
-      "https://i.pinimg.com/1200x/bb/ab/1e/bbab1ecf992c941743bb75af077d43c7.jpg",
-    category: "Framed",
-    title: "Hand & Foot Set",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/FB_IMG_1732615919912-1.jpg",
-    category: "Newborn",
-    title: "Hand & Foot Set",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/FB_IMG_1732615888383.jpg",
-    category: "Hands",
-    title: "Hand & Foot Set",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/IMG-20241130-WA0021-150x150.jpg",
-    category: "Framed",
-    title: "Gallery Wall Display",
-  },
-  {
-    image:
-      "https://babyimprints.in/wp-content/uploads/2024/12/FB_IMG_1732615881767-1.jpg",
-    category: "Hands",
-    title: "Hand & Foot Set",
-  },
-];
+// Import all images from the folder
+const images = import.meta.glob('@/assets/babyimprints-imgs/*.jpg', { eager: true, as: 'url' });
+
+// Create gallery items from the imported images
+const galleryItems = Object.values(images).map((imagePath, index) => {
+  // Cycle through categories (excluding "All")
+  const categoryIndex = index % (categories.length - 1);
+  const category = categories[categoryIndex + 1]; // +1 to skip "All"
+
+  return {
+    image: imagePath,
+    category: category,
+    title: `${category} Cast`, // Simple title based on category
+  };
+});
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredItems = activeCategory === "All" 
-    ? galleryItems 
+  const filteredItems = activeCategory === "All"
+    ? galleryItems
     : galleryItems.filter(item => item.category === activeCategory);
 
   return (
     <div className="min-h-screen">
       <Navigation />
-      
+
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
