@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-serif font-bold mb-4">Baby Imprints</h3>
             <p className="text-sm mb-4">
-              Capturing your baby's precious moments since 2004. Over 20 years
+              Capturing your baby's precious moments since 2005. Over 20 years
               of experience in Hyderabad.
             </p>
             <div className="flex items-center gap-2 text-sm">
