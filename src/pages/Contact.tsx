@@ -231,7 +231,7 @@ Message: ${formData.message}`;
                           href="mailto:info@babyimprints.in"
                           className="text-sm text-muted-foreground hover:text-primary"
                         >
-                          info@babyimprints.in
+                          babyimprits@gmail.com
                         </a>
                       </div>
                     </div>
