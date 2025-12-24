@@ -64,7 +64,7 @@ const Footer = () => {
             <div className="flex flex-col gap-3 text-sm">
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0" />
-                <span>Hyderabad, India</span>
+                <span>Flat no-102, Tirumala Mansion,Plot no-120, Survey no-41,Guttala Begumpet,Kavuri hills, Madhapur, Hyderabad -500033</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
