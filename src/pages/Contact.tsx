@@ -240,7 +240,7 @@ Message: ${formData.message}`;
                       <div>
                         <p className="font-medium">Location</p>
                         <p className="text-sm text-muted-foreground">
-                          Hyderabad, Telangana, India
+                          Flat no-102, Tirumala Mansion,Plot no-120, Survey no-41,Guttala Begumpet,Kavuri hills, Madhapur, Hyderabad -500033
                         </p>
                       </div>
                     </div>
